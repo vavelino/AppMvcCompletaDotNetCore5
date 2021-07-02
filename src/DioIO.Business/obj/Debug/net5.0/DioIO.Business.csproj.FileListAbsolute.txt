@@ -1,0 +1,12 @@
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DioIO.Business\bin\Debug\net5.0\DioIO.Business.deps.json
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DioIO.Business\bin\Debug\net5.0\DioIO.Business.dll
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DioIO.Business\bin\Debug\net5.0\ref\DioIO.Business.dll
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DioIO.Business\bin\Debug\net5.0\DioIO.Business.pdb
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DioIO.Business\obj\Debug\net5.0\DioIO.Business.csproj.AssemblyReference.cache
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DioIO.Business\obj\Debug\net5.0\DioIO.Business.GeneratedMSBuildEditorConfig.editorconfig
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DioIO.Business\obj\Debug\net5.0\DioIO.Business.AssemblyInfoInputs.cache
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DioIO.Business\obj\Debug\net5.0\DioIO.Business.AssemblyInfo.cs
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DioIO.Business\obj\Debug\net5.0\DioIO.Business.csproj.CoreCompileInputs.cache
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DioIO.Business\obj\Debug\net5.0\DioIO.Business.dll
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DioIO.Business\obj\Debug\net5.0\ref\DioIO.Business.dll
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DioIO.Business\obj\Debug\net5.0\DioIO.Business.pdb

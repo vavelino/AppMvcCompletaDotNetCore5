@@ -1,0 +1,59 @@
+//================ Nesse Projeto ==================//
+dotnet --list -> Lista de versões
+dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore
+dotnet add package Microsoft.EntityFrameworkCore.Relational
+
+dotnet ef migrations add MyMigrationInit -o Data/MyDBMigrations -c MyDbContext
+dotnet ef migrations remove -c MyDbContext
+dotnet ef migrations list -c MyDbContext
+
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet ef migrations script -c MyDbContext
+
+dotnet ef migrations add IdentityInit -o Data/IdentityMigrations -c ApplicationDbContext
+dotnet ef migrations script -c ApplicationDbContext
+
+dotnet ef database update -c ApplicationDbContext
+
+dotnet ef database update -c MyDbContext
+
+
+
+
+//===========Iniciando Entity Framework=============//
+dotnet tool list --global
+dotnet tool install --global dotnet-ef
+dotnet tool uninstall --global dotnet-ef
+dotnet-ef
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+dotnet add package Microsoft.EntityFrameworkCore.Design
+//=================================================//
+
+//===========Migrations===========================//
+dotnet ef migrations list
+dotnet ef migrations add init -o Data/Migrations
+*init => Nome da migration 
+*-o Data/Migrations => Local Output
+dotnet ef migrations remove => Remover
+dotnet ef database update
+//=================================================//
+
+Outros:
+Install-Package Microsoft.EntityFrameworkCore.SqlServer
+
+//=======================IDENTITY=======================//
+dotnet add package Microsoft.AspNetCore.Identity.UI
+
+ADD Scaffold -> Identity
+dotnet ef migrations add Identity -o Data/Migrations
+dotnet ef database update
+
+//=====================================================//
+
+//==========================LOG==========================//
+Usando o KissLog.net
+Documentação: Install
+dotnet add package KissLog.AspNetCore
+
+//=======================================================//
