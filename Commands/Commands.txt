@@ -19,6 +19,7 @@ dotnet ef database update -c ApplicationDbContext
 dotnet ef database update -c MyDbContext
 
 
+dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection
 
 
 //===========Iniciando Entity Framework=============//
