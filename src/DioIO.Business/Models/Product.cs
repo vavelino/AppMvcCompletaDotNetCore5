@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DevIO.App.Models
+namespace DevIO.Business.Models
 {
     public class Product : Entity
     {

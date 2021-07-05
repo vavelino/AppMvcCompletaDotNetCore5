@@ -1,4 +1,4 @@
-﻿using DevIO.App.Models;
+﻿using DevIO.Business.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DevIO.App.Models
+namespace DevIO.Business.Models
 {
     public class Address : Entity
     {

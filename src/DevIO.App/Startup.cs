@@ -12,8 +12,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DevIO.Data.Repository;
 using DevIO.Data.Context;
-
+using DioIO.Business.Interface;
 
 namespace DevIO.App
 {
@@ -38,7 +39,7 @@ namespace DevIO.App
                options.UseSqlServer(
                    Configuration.GetConnectionString("DefaultConnection"),
                    b => b.MigrationsAssembly("DevIO.App")
-                   ));            
+                   ));
 
 
             services.AddDatabaseDeveloperPageExceptionFilter();
@@ -46,6 +47,11 @@ namespace DevIO.App
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+
+            services.AddScoped<MyDbContext>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IAddressRepository, AddressRepository>();
+            services.AddScoped<ISupplierRepository, SupplierRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
