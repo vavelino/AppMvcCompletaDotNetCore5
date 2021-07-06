@@ -2,24 +2,32 @@
 dotnet --list -> Lista de versões
 dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore
 dotnet add package Microsoft.EntityFrameworkCore.Relational
-
-dotnet ef migrations add MyMigrationInit -o Data/MyDBMigrations -c MyDbContext
-dotnet ef migrations remove -c MyDbContext
-dotnet ef migrations list -c MyDbContext
-
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 dotnet add package Microsoft.EntityFrameworkCore.Design
-dotnet ef migrations script -c MyDbContext
+dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection
 
+
+
+MyDbContext          -> Tabelas de Entidades
+ApplicationDbContext -> IDENTITY
+
+
+dotnet ef migrations list -c MyDbContext
+dotnet ef migrations list -c ApplicationDbContext
+
+dotnet ef migrations add MyMigrationInit -o Data/MyDBMigrations -c MyDbContext
 dotnet ef migrations add IdentityInit -o Data/IdentityMigrations -c ApplicationDbContext
-dotnet ef migrations script -c ApplicationDbContext
 
-dotnet ef database update -c ApplicationDbContext
 
 dotnet ef database update -c MyDbContext
+dotnet ef database update -c ApplicationDbContext
+
+dotnet ef migrations remove -c MyDbContext
+dotnet ef migrations remove -c ApplicationDbContext
 
 
-dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection
+dotnet ef migrations script -c MyDbContext
+dotnet ef migrations script -c ApplicationDbContext
 
 
 //===========Iniciando Entity Framework=============//

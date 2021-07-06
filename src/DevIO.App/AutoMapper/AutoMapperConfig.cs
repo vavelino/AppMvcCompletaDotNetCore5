@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DevIO.App.Models;
+using DevIO.App.ViewModels;
 using DevIO.Business.Models;
 using System;
 using System.Collections.Generic;

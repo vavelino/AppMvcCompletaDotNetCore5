@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using DevIO.Data.Repository;
 using DevIO.Data.Context;
 using DioIO.Business.Interface;
+using AutoMapper;
 
 namespace DevIO.App
 {
@@ -42,13 +43,13 @@ namespace DevIO.App
                    ));
 
 
-            services.AddDatabaseDeveloperPageExceptionFilter();
+            //services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
 
-            services.AddAutoMapper(typeof(Startup));
+            services.AddAutoMapper(typeof(Startup)); // Procure qualquer class que tem o profile
 
             services.AddScoped<MyDbContext>();
             services.AddScoped<IProductRepository, ProductRepository>();

@@ -19,7 +19,7 @@ namespace DevIO.App.Data.MyDBMigrations
                 .HasAnnotation("ProductVersion", "5.0.7")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("DevIO.App.Models.Address", b =>
+            modelBuilder.Entity("DevIO.Business.Models.Address", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -63,7 +63,7 @@ namespace DevIO.App.Data.MyDBMigrations
                     b.ToTable("Addresses");
                 });
 
-            modelBuilder.Entity("DevIO.App.Models.Product", b =>
+            modelBuilder.Entity("DevIO.Business.Models.Product", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -91,7 +91,7 @@ namespace DevIO.App.Data.MyDBMigrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<decimal>("Value")
-                        .HasColumnType("decimal(10,4)");
+                        .HasColumnType("decimal(10,2)");
 
                     b.HasKey("Id");
 
@@ -100,7 +100,7 @@ namespace DevIO.App.Data.MyDBMigrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("DevIO.App.Models.Supplier", b =>
+            modelBuilder.Entity("DevIO.Business.Models.Supplier", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -125,19 +125,19 @@ namespace DevIO.App.Data.MyDBMigrations
                     b.ToTable("Suppliers");
                 });
 
-            modelBuilder.Entity("DevIO.App.Models.Address", b =>
+            modelBuilder.Entity("DevIO.Business.Models.Address", b =>
                 {
-                    b.HasOne("DevIO.App.Models.Supplier", "Supplier")
+                    b.HasOne("DevIO.Business.Models.Supplier", "Supplier")
                         .WithOne("Address")
-                        .HasForeignKey("DevIO.App.Models.Address", "SupplierId")
+                        .HasForeignKey("DevIO.Business.Models.Address", "SupplierId")
                         .IsRequired();
 
                     b.Navigation("Supplier");
                 });
 
-            modelBuilder.Entity("DevIO.App.Models.Product", b =>
+            modelBuilder.Entity("DevIO.Business.Models.Product", b =>
                 {
-                    b.HasOne("DevIO.App.Models.Supplier", "Supplier")
+                    b.HasOne("DevIO.Business.Models.Supplier", "Supplier")
                         .WithMany("Products")
                         .HasForeignKey("SupplierId")
                         .IsRequired();
@@ -145,7 +145,7 @@ namespace DevIO.App.Data.MyDBMigrations
                     b.Navigation("Supplier");
                 });
 
-            modelBuilder.Entity("DevIO.App.Models.Supplier", b =>
+            modelBuilder.Entity("DevIO.Business.Models.Supplier", b =>
                 {
                     b.Navigation("Address");
 

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DevIO.App.Models
+namespace DevIO.App.ViewModels
 {
     public class AddressViewModel
     {
