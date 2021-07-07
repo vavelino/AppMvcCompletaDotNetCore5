@@ -10,15 +10,15 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DevIO.App.Data.MyDBMigrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20210706144449_MyMigrationInit")]
+    [Migration("20210706233259_MyMigrationInit")]
     partial class MyMigrationInit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasAnnotation("ProductVersion", "3.1.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.7")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("DevIO.Business.Models.Address", b =>
@@ -133,8 +133,6 @@ namespace DevIO.App.Data.MyDBMigrations
                         .WithOne("Address")
                         .HasForeignKey("DevIO.Business.Models.Address", "SupplierId")
                         .IsRequired();
-
-                    b.Navigation("Supplier");
                 });
 
             modelBuilder.Entity("DevIO.Business.Models.Product", b =>
@@ -143,15 +141,6 @@ namespace DevIO.App.Data.MyDBMigrations
                         .WithMany("Products")
                         .HasForeignKey("SupplierId")
                         .IsRequired();
-
-                    b.Navigation("Supplier");
-                });
-
-            modelBuilder.Entity("DevIO.Business.Models.Supplier", b =>
-                {
-                    b.Navigation("Address");
-
-                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }

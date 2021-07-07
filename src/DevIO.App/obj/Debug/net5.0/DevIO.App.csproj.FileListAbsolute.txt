@@ -435,6 +435,11 @@ D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCom
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Suppliers\Create.cshtml.g.cs
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Suppliers\Delete.cshtml.g.cs
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Suppliers\Details.cshtml.g.cs
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Suppliers\Edit.cshtml.g.cs
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Suppliers\Index.cshtml.g.cs
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\DevIO.App.RazorTargetAssemblyInfo.cache
@@ -445,3 +450,8 @@ D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCom
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\ref\DevIO.App.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\DevIO.App.pdb
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\DevIO.App.genruntimeconfig.cache
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Products\Create.cshtml.g.cs
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Products\Delete.cshtml.g.cs
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Products\Details.cshtml.g.cs
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Products\Edit.cshtml.g.cs
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Products\Index.cshtml.g.cs

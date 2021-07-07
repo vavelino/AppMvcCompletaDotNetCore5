@@ -1,45 +1,46 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using DevIO.App.Data;
+﻿using AutoMapper;
 using DevIO.App.ViewModels;
+using DevIO.Business.Models;
+using DioIO.Business.Interface;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace DevIO.App.Controllers
 {
+
     public class SuppliersController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ISupplierRepository _supplierRepository;
+        private readonly IMapper _mapper;
 
-        public SuppliersController(ApplicationDbContext context)
+        public SuppliersController(ISupplierRepository supplierRepository,
+                                   IMapper mapper)
         {
-            _context = context;
+            _supplierRepository = supplierRepository;
+            _mapper = mapper;
         }
+
 
         // GET: Suppliers
         public async Task<IActionResult> Index()
         {
-            return View(await _context.SupplierViewModel.ToListAsync());
+            return View(_mapper
+                .Map<IEnumerable<SupplierViewModel>>
+                (await _supplierRepository.GetAll())
+                );
         }
 
         // GET: Suppliers/Details/5
-        public async Task<IActionResult> Details(Guid? id)
+        public async Task<IActionResult> Details(Guid id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            var supplierViewModel = await GetSupplierAddress(id);
 
-            var supplierViewModel = await _context.SupplierViewModel
-                .FirstOrDefaultAsync(m => m.Id == id);
             if (supplierViewModel == null)
             {
                 return NotFound();
             }
-
             return View(supplierViewModel);
         }
 
@@ -50,31 +51,25 @@ namespace DevIO.App.Controllers
         }
 
         // POST: Suppliers/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Document,SupplierType,Active")] SupplierViewModel supplierViewModel)
+        public async Task<IActionResult> Create(SupplierViewModel supplierViewModel)
         {
-            if (ModelState.IsValid)
-            {
-                supplierViewModel.Id = Guid.NewGuid();
-                _context.Add(supplierViewModel);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(supplierViewModel);
+            if (!ModelState.IsValid) return View(supplierViewModel);
+
+            var supplier = _mapper
+                 .Map<Supplier>(supplierViewModel);
+            await _supplierRepository.Add(supplier);
+
+            return RedirectToAction("Index");
+            //  return RedirectToAction(nameof(Index)); // Não precisa escrever Strings
         }
 
         // GET: Suppliers/Edit/5
-        public async Task<IActionResult> Edit(Guid? id)
+        public async Task<IActionResult> Edit(Guid id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
 
-            var supplierViewModel = await _context.SupplierViewModel.FindAsync(id);
+            var supplierViewModel = await GetSupplierProductAddress(id);
             if (supplierViewModel == null)
             {
                 return NotFound();
@@ -83,54 +78,29 @@ namespace DevIO.App.Controllers
         }
 
         // POST: Suppliers/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Name,Document,SupplierType,Active")] SupplierViewModel supplierViewModel)
+        public async Task<IActionResult> Edit(Guid id, SupplierViewModel supplierViewModel)
         {
-            if (id != supplierViewModel.Id)
-            {
-                return NotFound();
-            }
+            if (id != supplierViewModel.Id) return NotFound();
+            if (!ModelState.IsValid) return View(supplierViewModel);
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(supplierViewModel);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!SupplierViewModelExists(supplierViewModel.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(supplierViewModel);
+            var supplier = _mapper
+                 .Map<Supplier>(supplierViewModel);
+
+            await _supplierRepository.Update(supplier);
+
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Suppliers/Delete/5
-        public async Task<IActionResult> Delete(Guid? id)
+        public async Task<IActionResult> Delete(Guid id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            var supplierViewModel = await GetSupplierAddress(id);
 
-            var supplierViewModel = await _context.SupplierViewModel
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (supplierViewModel == null)
-            {
-                return NotFound();
-            }
+
+            if (supplierViewModel == null) return NotFound();
+
 
             return View(supplierViewModel);
         }
@@ -140,15 +110,27 @@ namespace DevIO.App.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var supplierViewModel = await _context.SupplierViewModel.FindAsync(id);
-            _context.SupplierViewModel.Remove(supplierViewModel);
-            await _context.SaveChangesAsync();
+            var supplierViewModel = await GetSupplierAddress(id);
+
+            if (supplierViewModel == null) return NotFound();
+            // Não excluir o que já existe
+
+            await _supplierRepository.Remove(id);
+
             return RedirectToAction(nameof(Index));
         }
 
-        private bool SupplierViewModelExists(Guid id)
+        private async Task<SupplierViewModel> GetSupplierAddress(Guid id)
         {
-            return _context.SupplierViewModel.Any(e => e.Id == id);
+            return _mapper
+                .Map<SupplierViewModel>
+                (await _supplierRepository.GetSupplierAddressByID(id));
+        }
+        private async Task<SupplierViewModel> GetSupplierProductAddress(Guid id)
+        {
+            return _mapper
+                .Map<SupplierViewModel>
+                (await _supplierRepository.GetSupplierProductAddressByID(id));
         }
     }
 }

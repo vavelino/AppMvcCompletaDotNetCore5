@@ -1,11 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
-using DevIO.App.ViewModels;
 
 namespace DevIO.App.ViewModels
 {
@@ -28,8 +26,6 @@ namespace DevIO.App.ViewModels
         [StringLength(1000, ErrorMessage = "O campo {0} Precisa ter entre {2} e {1} Caracteres", MinimumLength = 2)]
         [Display(Name = "Descrição")]
         public string Description { get; set; }
-
-
         public IFormFile ImageUpload { get; set; }
 
         [Required(ErrorMessage = "O Campo {0} é Obrigatório")]
@@ -49,5 +45,7 @@ namespace DevIO.App.ViewModels
         public bool Active { get; set; }
 
         public SupplierViewModel Supplier { get; set; }
+
+        public IEnumerable<SupplierViewModel> Suppliers { get; set; }
     }
 }

@@ -9,3 +9,4 @@ D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCom
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DioIO.Business\obj\Debug\net5.0\DioIO.Business.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DioIO.Business\obj\Debug\net5.0\ref\DioIO.Business.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DioIO.Business\obj\Debug\net5.0\DioIO.Business.pdb
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DioIO.Business\obj\Debug\net5.0\DioIO.Business.csproj.AssemblyReference.cache
