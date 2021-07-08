@@ -24,7 +24,7 @@ namespace DevIO.App.ViewModels
         [Display(Name = "Documento")]
         public string Document { get; set; }
 
-
+       
         [Display(Name = "Tipo do Fornecedor")]
         public int SupplierType { get; set; }
 

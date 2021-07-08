@@ -29,6 +29,12 @@ dotnet ef migrations remove -c ApplicationDbContext
 dotnet ef migrations script -c MyDbContext
 dotnet ef migrations script -c ApplicationDbContext
 
+// Adcionar incones
+DEV.IO.App(botão direito) -> Add -> Cliente-Side Library
+cdnjs
+font-awesome
+all.min.css
+web fonts
 
 //===========Iniciando Entity Framework=============//
 dotnet tool list --global

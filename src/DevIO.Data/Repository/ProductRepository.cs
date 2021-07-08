@@ -20,10 +20,11 @@ namespace DevIO.Data.Repository
 
         public async Task<IEnumerable<Product>> GetProductsSuppliers()
         {
-            return await Db.Products.AsNoTracking()
+            var ProductsSuppliers = await Db.Products.AsNoTracking()
                 .Include(f => f.Supplier)
                 .OrderBy(p => p.Name)
                 .ToArrayAsync();
+            return ProductsSuppliers;
         }
 
         public async Task<Product> GetProductSupplier(Guid id)

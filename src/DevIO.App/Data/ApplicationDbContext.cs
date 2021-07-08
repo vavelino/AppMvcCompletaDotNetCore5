@@ -14,6 +14,7 @@ namespace DevIO.App.Data
         {
         }
         public DbSet<DevIO.App.ViewModels.ProductViewModel> ProductViewModel { get; set; }
+        public DbSet<DevIO.App.ViewModels.AddressViewModel> AddressViewModel { get; set; }
         //public DbSet<DevIO.App.ViewModels.SupplierViewModel> SupplierViewModel { get; set; }
     }
 }

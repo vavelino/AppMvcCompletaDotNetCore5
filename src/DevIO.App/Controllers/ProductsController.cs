@@ -2,9 +2,11 @@
 using DevIO.App.ViewModels;
 using DevIO.Business.Models;
 using DioIO.Business.Interface;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace DevIO.App.Controllers
@@ -28,9 +30,11 @@ namespace DevIO.App.Controllers
         // GET: Products
         public async Task<IActionResult> Index()
         {
+            //return Ok("ae");
+            //< IEnumerable < ProductViewModel >> ae;
             return View(
-                _mapper
-                .Map<IEnumerable<ProductViewModel>>
+                 _mapper
+                 .Map<IEnumerable<ProductViewModel>>
                 (await _productRepository.GetProductsSuppliers())
                 );
         }
@@ -51,22 +55,30 @@ namespace DevIO.App.Controllers
         public async Task<IActionResult> Create()
         {
             ProductViewModel productViewModel = await FillSuppliers(new ProductViewModel());
-            return View();
+            return View(productViewModel);
         }
 
         // POST: Products/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        // [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ProductViewModel productViewModel)
         {
+            productViewModel.Image = "";
 
             productViewModel = await FillSuppliers(productViewModel);
 
             if (!ModelState.IsValid) return View(productViewModel);
 
+            var imgPrefix = Guid.NewGuid() + "_";// Garantir que a imagem nunca vai repetir
+            if (!await UploadFile(productViewModel.ImageUpload, imgPrefix))
+            {
+                return View(productViewModel);
+            }
+            productViewModel.Image = imgPrefix + productViewModel.ImageUpload.FileName;
+
             await _productRepository.Add(_mapper.Map<Product>(productViewModel));
 
-            return View(productViewModel);
+            return RedirectToAction("Index");
         }
 
         // GET: Products/Edit/5
@@ -128,6 +140,21 @@ namespace DevIO.App.Controllers
             product.Suppliers = _mapper.Map<IEnumerable<SupplierViewModel>>
                 (await _supplierRepository.GetAll());
             return product;
+        }
+        private async Task<bool> UploadFile(IFormFile file, string imgPrefix)
+        {
+            if (file.Length <= 0) return false;
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Images", imgPrefix + file.FileName);
+            if (System.IO.File.Exists(path))
+            {
+                ModelState.AddModelError(string.Empty, "Já existe um arquivo com esse nome!");
+                return false;
+            }
+            using (var stream = new FileStream(path, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+            return true;
         }
     }
 }

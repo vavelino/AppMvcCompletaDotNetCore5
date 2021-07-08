@@ -1,5 +1,6 @@
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\appsettings.Development.json
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\appsettings.json
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\libman.json
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\DevIO.App.StaticWebAssets.xml
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\DevIO.App.exe
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\DevIO.App.deps.json
@@ -24,8 +25,6 @@ D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCom
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Connections.Abstractions.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\refs\Microsoft.AspNetCore.CookiePolicy.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Cors.dll
-D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Cryptography.Internal.dll
-D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\refs\Microsoft.AspNetCore.DataProtection.Abstractions.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\refs\Microsoft.AspNetCore.DataProtection.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\refs\Microsoft.AspNetCore.DataProtection.Extensions.dll
@@ -104,14 +103,11 @@ D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCom
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\refs\Microsoft.Extensions.Diagnostics.HealthChecks.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\refs\Microsoft.Extensions.FileProviders.Abstractions.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\refs\Microsoft.Extensions.FileProviders.Composite.dll
-D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\refs\Microsoft.Extensions.FileProviders.Embedded.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\refs\Microsoft.Extensions.FileProviders.Physical.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\refs\Microsoft.Extensions.FileSystemGlobbing.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\refs\Microsoft.Extensions.Hosting.Abstractions.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\refs\Microsoft.Extensions.Hosting.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\refs\Microsoft.Extensions.Http.dll
-D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\refs\Microsoft.Extensions.Identity.Core.dll
-D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\refs\Microsoft.Extensions.Identity.Stores.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\refs\Microsoft.Extensions.Localization.Abstractions.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\refs\Microsoft.Extensions.Localization.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\refs\Microsoft.Extensions.Logging.Abstractions.dll
@@ -294,9 +290,10 @@ D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCom
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\AutoMapper.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\Humanizer.dll
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.UI.Views.V3.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.UI.Views.V4.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.UI.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
@@ -317,6 +314,9 @@ D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCom
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\Microsoft.Extensions.FileProviders.Embedded.dll
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\Microsoft.Identity.Client.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
@@ -431,6 +431,11 @@ D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCom
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Products\Create.cshtml.g.cs
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Products\Delete.cshtml.g.cs
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Products\Details.cshtml.g.cs
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Products\Edit.cshtml.g.cs
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Products\Index.cshtml.g.cs
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
@@ -440,6 +445,7 @@ D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCom
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Suppliers\Details.cshtml.g.cs
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Suppliers\Edit.cshtml.g.cs
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Suppliers\Index.cshtml.g.cs
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Suppliers\_Address.cshtml.g.cs
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\DevIO.App.RazorTargetAssemblyInfo.cache
@@ -450,8 +456,3 @@ D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCom
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\ref\DevIO.App.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\DevIO.App.pdb
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\DevIO.App.genruntimeconfig.cache
-D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Products\Create.cshtml.g.cs
-D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Products\Delete.cshtml.g.cs
-D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Products\Details.cshtml.g.cs
-D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Products\Edit.cshtml.g.cs
-D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Products\Index.cshtml.g.cs
