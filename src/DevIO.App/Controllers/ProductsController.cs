@@ -30,13 +30,11 @@ namespace DevIO.App.Controllers
         // GET: Products
         public async Task<IActionResult> Index()
         {
-            //return Ok("ae");
-            //< IEnumerable < ProductViewModel >> ae;
             return View(
-                 _mapper
-                 .Map<IEnumerable<ProductViewModel>>
-                (await _productRepository.GetProductsSuppliers())
-                );
+               _mapper
+             .Map<IEnumerable<ProductViewModel>>
+            (await _productRepository.GetProductsSuppliers())
+             );
         }
 
         // GET: Products/Details/5
@@ -70,11 +68,11 @@ namespace DevIO.App.Controllers
             if (!ModelState.IsValid) return View(productViewModel);
 
             var imgPrefix = Guid.NewGuid() + "_";// Garantir que a imagem nunca vai repetir
-            if (!await UploadFile(productViewModel.ImageUpload, imgPrefix))
+                                                 // if (!await UploadFile(productViewModel.ImageUpload, imgPrefix))
             {
-                return View(productViewModel);
+                //   return View(productViewModel);
             }
-            productViewModel.Image = imgPrefix + productViewModel.ImageUpload.FileName;
+            //productViewModel.Image = imgPrefix + productViewModel.ImageUpload.FileName;
 
             await _productRepository.Add(_mapper.Map<Product>(productViewModel));
 

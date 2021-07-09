@@ -126,11 +126,42 @@ namespace DevIO.App.Controllers
                 .Map<SupplierViewModel>
                 (await _supplierRepository.GetSupplierAddressByID(id));
         }
+
+        /*
+        IEnumerable<SupplierViewModel> GenerateIEnumerable(IEnumerable<Supplier> suplliers)
+        {
+
+            foreach (var item in suplliers)
+
+            {
+                SupplierViewModel supplierViewModel = new SupplierViewModel();
+
+                supplierViewModel.Id = item.Id;
+                supplierViewModel.Name = item.Name;
+                supplierViewModel.Document = item.Document;
+                supplierViewModel.SupplierType = 1;
+                supplierViewModel.Active = item.Active;
+                //supplierViewModel.Products
+
+
+
+                yield return supplierViewModel;
+            }
+        }
+        */
         private async Task<SupplierViewModel> GetSupplierProductAddress(Guid id)
         {
-            return _mapper
+            //var teste = await _supplierRepository.GetSupplierProductAddressByID(id);
+           // SupplierViewModel ale = new SupplierViewModel();
+
+
+
+
+           // var aaa = 3;
+            var SupplierProductAddress = _mapper
                 .Map<SupplierViewModel>
                 (await _supplierRepository.GetSupplierProductAddressByID(id));
+            return SupplierProductAddress;
         }
     }
 }

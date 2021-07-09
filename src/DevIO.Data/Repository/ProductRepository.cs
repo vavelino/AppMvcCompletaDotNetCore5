@@ -20,8 +20,12 @@ namespace DevIO.Data.Repository
 
         public async Task<IEnumerable<Product>> GetProductsSuppliers()
         {
+
+       
+
             var ProductsSuppliers = await Db.Products.AsNoTracking()
                 .Include(f => f.Supplier)
+                //.Include(f => f.Supplier.Address)
                 .OrderBy(p => p.Name)
                 .ToArrayAsync();
             return ProductsSuppliers;

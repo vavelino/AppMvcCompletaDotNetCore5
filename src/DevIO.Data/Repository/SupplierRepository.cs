@@ -24,6 +24,13 @@ namespace DevIO.Data.Repository
 
         public async Task<Supplier> GetSupplierProductAddressByID(Guid id)
         {
+            /*
+            var teste = await Db.Suppliers
+                .AsNoTracking()
+                .Include(s => s.Products)
+                .Include(s => s.Address)
+                .FirstOrDefaultAsync(s => s.Id == id);
+            */
             return await Db.Suppliers
                 .AsNoTracking()
                 .Include(s=>s.Products)

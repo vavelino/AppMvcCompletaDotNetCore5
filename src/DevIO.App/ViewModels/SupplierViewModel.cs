@@ -37,7 +37,7 @@ namespace DevIO.App.ViewModels
         public bool Active { get; set; }
 
 
-        public IEnumerable<AddressViewModel> Products { get; set; }
+        public IEnumerable<ProductViewModel> Products { get; set; }
 
     }
 }
