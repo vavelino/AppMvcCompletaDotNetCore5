@@ -68,11 +68,11 @@ namespace DevIO.App.Controllers
             if (!ModelState.IsValid) return View(productViewModel);
 
             var imgPrefix = Guid.NewGuid() + "_";// Garantir que a imagem nunca vai repetir
-                                                 // if (!await UploadFile(productViewModel.ImageUpload, imgPrefix))
+            if (!await UploadFile(productViewModel.ImageUpload, imgPrefix))
             {
-                //   return View(productViewModel);
+                return View(productViewModel);
             }
-            //productViewModel.Image = imgPrefix + productViewModel.ImageUpload.FileName;
+            productViewModel.Image = imgPrefix + productViewModel.ImageUpload.FileName;
 
             await _productRepository.Add(_mapper.Map<Product>(productViewModel));
 
@@ -94,13 +94,43 @@ namespace DevIO.App.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, ProductViewModel productViewModel)
         {
+
             if (id != productViewModel.Id) return NotFound();
+
+            var productViewModelUpdate = await GetProductById(id);
+
+            productViewModel.Supplier = productViewModelUpdate.Supplier;
+           
+            productViewModel.Image = productViewModelUpdate.Image;
+
             if (!ModelState.IsValid) return View(productViewModel);
-            await _productRepository.Update(
-                _mapper
+
+
+            if (productViewModel.ImageUpload != null)
+            {
+                var imgPrefix = Guid.NewGuid() + "_";// Garantir que a imagem nunca vai repetir
+                if (!await UploadFile(productViewModel.ImageUpload, imgPrefix))
+                {
+                    return View(productViewModel);
+                }
+                productViewModelUpdate.Image = imgPrefix + productViewModel.ImageUpload.FileName;
+            }
+
+            // Tecnica segura de Edição, Evita que o Usuário Edite Campos 
+            // que você não queira
+
+            productViewModelUpdate.Name = productViewModel.Name;
+            productViewModelUpdate.Description = productViewModel.Description;
+            productViewModelUpdate.Value = productViewModel.Value;
+            productViewModelUpdate.Active = productViewModel.Active;
+
+            productViewModelUpdate.Supplier = null; // Correção Erro Gravar ID que já existe
+
+            var productUpdate = _mapper
                 .Map<Product>
-                (productViewModel)
-                );
+                (productViewModelUpdate);            
+         
+            await _productRepository.Update(productUpdate);
             return RedirectToAction(nameof(Index));
         }
 

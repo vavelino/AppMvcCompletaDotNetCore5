@@ -44,6 +44,9 @@ namespace DevIO.Data.Repository
         }
         public virtual async Task Update(TEntity entity)
         {
+            //DbSet.U
+            // entity.Id = Guid.NewGuid();
+            //Db.ChangeTracker.DetectChanges();
             DbSet.Update(entity);
             await SaveChanges();
         }

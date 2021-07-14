@@ -5,6 +5,7 @@
 }
 
 <h1>@ViewData["Title"]</h1>
+<hr />
 
 <p>
     <a class="btn btn-info" asp-action="Create">Novo Produto</a>
@@ -19,10 +20,7 @@
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Image)
+                @Html.DisplayNameFor(model => model.Supplier)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Value)
@@ -30,9 +28,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Active)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Supplier)
-            </th>
+
             <th></th>
         </tr>
     </thead>
@@ -41,16 +37,13 @@
         {
             <tr>
                 <td>
+                    <img src="~/Images/@(item.Image)" alt="@(item.Image)" style="width : 70px ;height : 100px;" />
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
-                
                 <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Image)
+                    @Html.DisplayFor(modelItem => item.Supplier.Name)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Value)
@@ -58,16 +51,14 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Active)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Supplier.Document)
-                </td>
+
 
                 <td class="text-right">
                     <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id"><spam class="fa fa-search"></spam></a>
                     <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id"><spam class="fa fa-pencil-alt"></spam></a>
                     <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><spam class="fa fa-trash"></spam></a>
                 </td>
-            
+
             </tr>
         }
     </tbody>

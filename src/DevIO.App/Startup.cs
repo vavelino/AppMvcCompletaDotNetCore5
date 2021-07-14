@@ -36,11 +36,16 @@ namespace DevIO.App
                     Configuration.GetConnectionString("DefaultConnection")));
 
 
-            services.AddDbContext<MyDbContext>(options =>
-               options.UseSqlServer(
-                   Configuration.GetConnectionString("DefaultConnection"),
-                   b => b.MigrationsAssembly("DevIO.App")
-                   ));
+            services.AddDbContext<MyDbContext>(options => {
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("DefaultConnection"),
+                    b => b.MigrationsAssembly("DevIO.App")
+                    );
+                options.EnableSensitiveDataLogging();
+                }
+              // options.
+               //opt.EnableSensitiveDataLogging();
+               );
 
 
             services.AddDatabaseDeveloperPageExceptionFilter();
