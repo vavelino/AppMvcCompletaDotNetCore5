@@ -16,6 +16,10 @@ using DevIO.Data.Repository;
 using DevIO.Data.Context;
 using DioIO.Business.Interface;
 using AutoMapper;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc.DataAnnotations;
+using DevIO.App.Extensions;
 
 namespace DevIO.App
 {
@@ -36,14 +40,15 @@ namespace DevIO.App
                     Configuration.GetConnectionString("DefaultConnection")));
 
 
-            services.AddDbContext<MyDbContext>(options => {
+            services.AddDbContext<MyDbContext>(options =>
+            {
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection"),
                     b => b.MigrationsAssembly("DevIO.App")
                     );
                 options.EnableSensitiveDataLogging();
-                }
-              // options.
+            }
+               // options.
                //opt.EnableSensitiveDataLogging();
                );
 
@@ -52,7 +57,22 @@ namespace DevIO.App
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-            services.AddControllersWithViews();
+            services.AddControllersWithViews(option =>
+           {
+               // Transforma as Menssagens que são padrões para o português
+               option.ModelBindingMessageProvider.SetAttemptedValueIsInvalidAccessor((x, y) => "O valor preenchido é inválido para este campo.");
+               option.ModelBindingMessageProvider.SetMissingBindRequiredValueAccessor(x => "Este campo precisa ser preenchido.");
+               option.ModelBindingMessageProvider.SetMissingKeyOrValueAccessor(() => "Este campo precisa ser preenchido.");
+               option.ModelBindingMessageProvider.SetMissingRequestBodyRequiredValueAccessor(() => "É necessário que o body na requisição não esteja vazio.");
+               option.ModelBindingMessageProvider.SetNonPropertyAttemptedValueIsInvalidAccessor(x => "O valor preenchido é inválido para este campo.");
+               option.ModelBindingMessageProvider.SetNonPropertyUnknownValueIsInvalidAccessor(() => "O valor preenchido é inválido para este campo.");
+               option.ModelBindingMessageProvider.SetNonPropertyValueMustBeANumberAccessor(() => "O campo deve ser numérico");
+               option.ModelBindingMessageProvider.SetUnknownValueIsInvalidAccessor(x => "O valor preenchido é inválido para este campo.");
+               option.ModelBindingMessageProvider.SetValueIsInvalidAccessor(x => "O valor preenchido é inválido para este campo.");
+               option.ModelBindingMessageProvider.SetValueMustBeANumberAccessor(x => "O campo deve ser numérico.");
+               option.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(x => "Este campo precisa ser preenchido.");
+           }
+           );
 
             services.AddAutoMapper(typeof(Startup)); // Procure qualquer class que tem o profile
 
@@ -60,6 +80,7 @@ namespace DevIO.App
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IAddressRepository, AddressRepository>();
             services.AddScoped<ISupplierRepository, SupplierRepository>();
+            services.AddSingleton<IValidationAttributeAdapterProvider, CurrencyAttributeAdapterProvider>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -82,6 +103,15 @@ namespace DevIO.App
             app.UseRouting();
 
             app.UseAuthentication();
+            var defaultCulture = new CultureInfo("pt-BR");
+            var localizationOptions = new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture(defaultCulture),
+                SupportedCultures = new List<CultureInfo> { defaultCulture },
+                SupportedUICultures = new List<CultureInfo> { defaultCulture }
+            };
+            app.UseRequestLocalization(localizationOptions);
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

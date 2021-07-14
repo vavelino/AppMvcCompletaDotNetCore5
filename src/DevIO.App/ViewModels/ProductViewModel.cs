@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using DevIO.App.Extensions;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -34,6 +35,7 @@ namespace DevIO.App.ViewModels
         [Display(Name = "Imagem")]
         public string Image { get; set; }
 
+        [Currency] // Funciona no Serve Side
         [Required(ErrorMessage = "O Campo {0} é Obrigatório")]
         [Column(TypeName = "decimal(10,4)")]
         [Display(Name = "Valor")]
