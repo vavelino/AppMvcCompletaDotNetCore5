@@ -113,11 +113,23 @@ namespace DevIO.App.Controllers
             var supplierViewModel = await GetSupplierAddress(id);
 
             if (supplierViewModel == null) return NotFound();
-            // Não excluir o que já existe
+            // Não excluir o que já não existe
 
             await _supplierRepository.Remove(id);
 
             return RedirectToAction(nameof(Index));
+        }
+
+
+        public async Task<IActionResult> UpdateAddress(Guid id)
+        {
+            var supplier = await GetSupplierAddress(id);
+
+            if (supplier == null) return NotFound();
+
+            return PartialView("_UpdateAddress",
+                new SupplierViewModel { Address = supplier.Address} 
+                );
         }
 
         private async Task<SupplierViewModel> GetSupplierAddress(Guid id)

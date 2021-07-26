@@ -51,13 +51,30 @@
 <hr />
 <h4>Produtos</h4>
 <div>
-    <partial name="../Products/_ProductsList" model="@Model.Products"/>
+    <partial name="../Products/_ProductsList" model="@Model.Products" />
     <!--
-        Normalmente ele procuraria na pasta Shared e Suppliers, porém 
+        Normalmente ele procuraria na pasta Shared e Suppliers, porém
         quando se sobe a pasta ele procura na pasta especifica.
         Além de passar a sua Model
         -->
+    <!--
+    modal fade inAparecer suavemente
+    //myModalContent
+    -->
+    <div id="myModal" class="modal fade in">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div id="myModalContent">
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function () {
+            SetModal();
+        })
+    </script>
 }
