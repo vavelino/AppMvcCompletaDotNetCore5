@@ -13,7 +13,7 @@
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="SupplierId" class="control-label"></label><br />
-                <label><b>@Model.Supplier.Name</b></label>
+                <label><b>Model.Supplier.Name</b></label>
             </div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
@@ -30,13 +30,15 @@
                 <img src="~/Images/@(Model.Image)" alt="@(Model.Image)" style="width:70px;height:100px" />
             </div>
             <div class="form-group">
+
                 <label asp-for="ImageUpload" class="control-label"></label>
                 <div class="custom-file">
                     <input type="file" class="custom-file-input" id="ImageUpload" asp-for="ImageUpload" />
                     <label data-browse="Procurar" style="width:400px" class="custom-file-label" for="ImageUpload"></label>
                     <label style="display:none" id="img_name"></label>
                 </div>
-              <!--  <span asp-validation-for="ImageUpload" class="text-danger"></span>-->
+
+                <!--  <span asp-validation-for="ImageUpload" class="text-danger"></span>-->
             </div>
             <div class="form-group">
                 <label asp-for="Value" class="control-label"></label>

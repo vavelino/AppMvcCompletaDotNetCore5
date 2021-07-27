@@ -20,9 +20,8 @@ namespace DevIO.Data.Context
                 .SelectMany(e => e.GetProperties()
                 .Where(p => p.ClrType == typeof(string))))
                 property.SetColumnType("varchar(100)");
-               
 
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(MyDbContext).Assembly); // Registra Os Maps
+             modelBuilder.ApplyConfigurationsFromAssembly(typeof(MyDbContext).Assembly); // Registra Os Maps
 
             //Evitar que se um elemento de uma classe ser excluido evita de excluir elementos de outra class
 

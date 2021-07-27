@@ -68,6 +68,7 @@ namespace DevIO.App.Controllers
             if (!ModelState.IsValid) return View(productViewModel);
 
             var imgPrefix = Guid.NewGuid() + "_";// Garantir que a imagem nunca vai repetir
+
             if (!await UploadFile(productViewModel.ImageUpload, imgPrefix))
             {
                 return View(productViewModel);
@@ -100,7 +101,7 @@ namespace DevIO.App.Controllers
             var productViewModelUpdate = await GetProductById(id);
 
             productViewModel.Supplier = productViewModelUpdate.Supplier;
-           
+
             productViewModel.Image = productViewModelUpdate.Image;
 
             if (!ModelState.IsValid) return View(productViewModel);
@@ -128,8 +129,8 @@ namespace DevIO.App.Controllers
 
             var productUpdate = _mapper
                 .Map<Product>
-                (productViewModelUpdate);            
-         
+                (productViewModelUpdate);
+
             await _productRepository.Update(productUpdate);
             return RedirectToAction(nameof(Index));
         }

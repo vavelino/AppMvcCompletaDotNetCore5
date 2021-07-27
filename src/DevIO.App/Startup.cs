@@ -1,25 +1,19 @@
 using DevIO.App.Data;
+using DevIO.App.Extensions;
+using DevIO.Data.Context;
+using DevIO.Data.Repository;
+using DioIO.Business.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using DevIO.Data.Repository;
-using DevIO.Data.Context;
-using DioIO.Business.Interface;
-using AutoMapper;
 using System.Globalization;
-using Microsoft.AspNetCore.Localization;
-using Microsoft.AspNetCore.Mvc.DataAnnotations;
-using DevIO.App.Extensions;
 
 namespace DevIO.App
 {
@@ -35,25 +29,25 @@ namespace DevIO.App
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
 
+            var conection = "Server=localhost;User Id=root;Password=;Database=WebAppMvcCompleta";
+
+            services.AddDbContext<ApplicationDbContext>(options =>
+               options.UseMySql(conection, ServerVersion.AutoDetect(conection)));
 
             services.AddDbContext<MyDbContext>(options =>
             {
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection"),
+                options.UseMySql(
+                    conection,
+                    ServerVersion.AutoDetect(conection),
+                    //Configuration.GetConnectionString("DefaultConnection"),
                     b => b.MigrationsAssembly("DevIO.App")
                     );
                 options.EnableSensitiveDataLogging();
-            }
-               // options.
-               //opt.EnableSensitiveDataLogging();
-               );
+            });
 
 
-            services.AddDatabaseDeveloperPageExceptionFilter();
+           services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();

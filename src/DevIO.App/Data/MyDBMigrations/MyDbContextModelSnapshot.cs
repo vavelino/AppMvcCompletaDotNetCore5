@@ -3,7 +3,6 @@ using System;
 using DevIO.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DevIO.App.Data.MyDBMigrations
@@ -15,15 +14,14 @@ namespace DevIO.App.Data.MyDBMigrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.3")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("Relational:MaxIdentifierLength", 64)
+                .HasAnnotation("ProductVersion", "5.0.7");
 
             modelBuilder.Entity("DevIO.Business.Models.Address", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("char(36)");
 
                     b.Property<string>("City")
                         .IsRequired()
@@ -49,7 +47,7 @@ namespace DevIO.App.Data.MyDBMigrations
                         .HasColumnType("varchar(200)");
 
                     b.Property<Guid>("SupplierId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("char(36)");
 
                     b.Property<string>("ZipCode")
                         .IsRequired()
@@ -67,10 +65,10 @@ namespace DevIO.App.Data.MyDBMigrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("char(36)");
 
                     b.Property<bool>("Active")
-                        .HasColumnType("bit");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -85,10 +83,10 @@ namespace DevIO.App.Data.MyDBMigrations
                         .HasColumnType("varchar(200)");
 
                     b.Property<DateTime>("RegistrationDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<Guid>("SupplierId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("char(36)");
 
                     b.Property<decimal>("Value")
                         .HasColumnType("decimal(10,2)");
@@ -104,10 +102,10 @@ namespace DevIO.App.Data.MyDBMigrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("char(36)");
 
                     b.Property<bool>("Active")
-                        .HasColumnType("bit");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Document")
                         .IsRequired()
@@ -131,6 +129,8 @@ namespace DevIO.App.Data.MyDBMigrations
                         .WithOne("Address")
                         .HasForeignKey("DevIO.Business.Models.Address", "SupplierId")
                         .IsRequired();
+
+                    b.Navigation("Supplier");
                 });
 
             modelBuilder.Entity("DevIO.Business.Models.Product", b =>
@@ -139,6 +139,15 @@ namespace DevIO.App.Data.MyDBMigrations
                         .WithMany("Products")
                         .HasForeignKey("SupplierId")
                         .IsRequired();
+
+                    b.Navigation("Supplier");
+                });
+
+            modelBuilder.Entity("DevIO.Business.Models.Supplier", b =>
+                {
+                    b.Navigation("Address");
+
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }
