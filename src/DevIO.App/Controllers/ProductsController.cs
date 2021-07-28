@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace DevIO.App.Controllers
 {
+    [Route("produto")]
     public class ProductsController : BaseController
     {
         private readonly IProductRepository _productRepository;
@@ -28,6 +29,7 @@ namespace DevIO.App.Controllers
         }
         //GetProductById
         // GET: Products
+        [Route("lista")]
         public async Task<IActionResult> Index()
         {
             return View(
@@ -38,6 +40,7 @@ namespace DevIO.App.Controllers
         }
 
         // GET: Products/Details/5
+        [Route("detalhes/{id:guid}")]
         public async Task<IActionResult> Details(Guid id)
         {
 
@@ -50,6 +53,7 @@ namespace DevIO.App.Controllers
         }
 
         // GET: Products/Create
+        [Route("novo/{id:guid}")]
         public async Task<IActionResult> Create()
         {
             ProductViewModel productViewModel = await FillSuppliers(new ProductViewModel());
@@ -57,6 +61,7 @@ namespace DevIO.App.Controllers
         }
 
         // POST: Products/Create
+        [Route("novo/{id:guid}")]
         [HttpPost]
         // [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ProductViewModel productViewModel)
@@ -81,6 +86,7 @@ namespace DevIO.App.Controllers
         }
 
         // GET: Products/Edit/5
+        [Route("editar/{id:guid}")]
         public async Task<IActionResult> Edit(Guid id)
         {
             var productViewModel = await GetProductById(id);
@@ -91,6 +97,7 @@ namespace DevIO.App.Controllers
         }
 
         // POST: Products/Edit/5
+        [Route("editar/{id:guid}")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, ProductViewModel productViewModel)
@@ -136,6 +143,7 @@ namespace DevIO.App.Controllers
         }
 
         // GET: Products/Delete/5
+        [Route("excluir/{id:guid}")]
         public async Task<IActionResult> Delete(Guid id)
         {
             var product = await GetProductById(id);
@@ -144,6 +152,7 @@ namespace DevIO.App.Controllers
         }
 
         // POST: Products/Delete/5
+        [Route("excluir/{id:guid}")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
