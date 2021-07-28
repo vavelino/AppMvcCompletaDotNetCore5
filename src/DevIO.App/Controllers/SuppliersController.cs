@@ -13,12 +13,15 @@ namespace DevIO.App.Controllers
     public class SuppliersController : Controller
     {
         private readonly ISupplierRepository _supplierRepository;
+        private readonly IAddressRepository _addressRepository;
         private readonly IMapper _mapper;
 
         public SuppliersController(ISupplierRepository supplierRepository,
+                                   IAddressRepository addressRepository,
                                    IMapper mapper)
         {
             _supplierRepository = supplierRepository;
+            _addressRepository = addressRepository;
             _mapper = mapper;
         }
 
@@ -119,7 +122,14 @@ namespace DevIO.App.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+         
+        public async Task<IActionResult> GetAddress(Guid id)
+        {
+            var supplier = await GetSupplierAddress(id);
 
+            if (supplier == null) return NotFound();
+            return PartialView("_DetailsAddress", supplier);
+        }
 
         public async Task<IActionResult> UpdateAddress(Guid id)
         {
@@ -128,9 +138,28 @@ namespace DevIO.App.Controllers
             if (supplier == null) return NotFound();
 
             return PartialView("_UpdateAddress",
-                new SupplierViewModel { Address = supplier.Address} 
+                new SupplierViewModel { Address = supplier.Address }
                 );
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> UpdateAddress(SupplierViewModel supplierViewModel)
+        {
+            ModelState.Remove("Name");
+            ModelState.Remove("Document");
+            if (!ModelState.IsValid) return PartialView("_UpdateAddress",
+                supplierViewModel);
+
+            await _addressRepository.Update(
+                _mapper.Map<Address>(supplierViewModel.Address));
+
+            var url = Url.Action("GetAddress", "Suppliers",
+                new { id = supplierViewModel.Address.SupplierId });
+
+            return Json(new { success = true, url });
+        }
+
+     
 
         private async Task<SupplierViewModel> GetSupplierAddress(Guid id)
         {
@@ -164,12 +193,12 @@ namespace DevIO.App.Controllers
         private async Task<SupplierViewModel> GetSupplierProductAddress(Guid id)
         {
             //var teste = await _supplierRepository.GetSupplierProductAddressByID(id);
-           // SupplierViewModel ale = new SupplierViewModel();
+            // SupplierViewModel ale = new SupplierViewModel();
 
 
 
 
-           // var aaa = 3;
+            // var aaa = 3;
             var SupplierProductAddress = _mapper
                 .Map<SupplierViewModel>
                 (await _supplierRepository.GetSupplierProductAddressByID(id));

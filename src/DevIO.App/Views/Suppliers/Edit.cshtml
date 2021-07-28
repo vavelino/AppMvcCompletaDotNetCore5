@@ -26,8 +26,8 @@
 
             <label asp-for="SupplierType"></label>
             <div>
-                <input type="radio" value="1" asp-for="SupplierType" checked="@(Model.SupplierType == 1)" /> Pessoa Física
-                <input type="radio" value="2" asp-for="SupplierType" checked="@(Model.SupplierType == 2)" /> Pessoa Jurídica
+                <input id="Radio1" type="radio" value="1" asp-for="SupplierType" checked="@(Model.SupplierType == 1)" /> Pessoa Física
+                <input id="Radio2" type="radio" value="2" asp-for="SupplierType" checked="@(Model.SupplierType == 2)" /> Pessoa Jurídica
             </div>
             <div>
                 &nbsp;
@@ -44,7 +44,7 @@
         <a class="btn btn-info" href="javascript:window.history.back()">Voltar</a>
     </div>
 </form>
-<div>
+<div id="AddressTarget">
     <partial name="_DetailsAddress" />
 </div>
 
@@ -75,6 +75,6 @@
     <script>
         $(document).ready(function () {
             SetModal();
-        })
+        });
     </script>
 }

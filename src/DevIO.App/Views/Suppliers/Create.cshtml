@@ -22,8 +22,8 @@
                 <span asp-validation-for="Document" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="SupplierType" class="control-label"></label>  <br />              
-                <input type="radio" value="1" asp-for="SupplierType" checked/> Pessoa Física <br />
+                <label asp-for="SupplierType" class="control-label"></label>  <br />
+                <input type="radio" value="1" asp-for="SupplierType" checked /> Pessoa Física <br />
                 <input type="radio" value="2" asp-for="SupplierType" /> Pessoa Jurídica
             </div>
             <div class="form-group form-check">
@@ -33,7 +33,7 @@
             </div>
             <hr />
             <h4>Endereço</h4>
-            <partial name="_Address"/>
+            <partial name="_Address" />
             <div class="form-group">
                 <input type="submit" value="Cadastrar" class="btn btn-primary" />
                 <a class="btn btn-info" asp-action="Index">Voltar</a>
@@ -46,4 +46,7 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        SearchCep();
+    </script>
 }

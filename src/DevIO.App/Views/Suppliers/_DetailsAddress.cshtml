@@ -59,7 +59,8 @@
                     @Html.DisplayFor(model => model.Address.State)
                 </td>
                 <td>
-                    <a asp-action="UpdateAddress" class="btn btn-info" data-modal="">
+                    <!-- asp-route-id -> o ID nesse caso é o parametro -->
+                    <a asp-action="UpdateAddress" asp-route-id="@Model.Id" class="btn btn-info" data-modal="">
                         <span title="Editar" class="fa fa-pencil-alt"></span>
                     </a>
                 </td>

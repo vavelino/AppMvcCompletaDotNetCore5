@@ -1,3 +1,4 @@
+using DevIO.App.Configurations;
 using DevIO.App.Data;
 using DevIO.App.Extensions;
 using DevIO.Data.Context;
@@ -32,9 +33,7 @@ namespace DevIO.App
 
             var conection = "Server=localhost;User Id=root;Password=;Database=WebAppMvcCompleta";
 
-            services.AddDbContext<ApplicationDbContext>(options =>
-               options.UseMySql(conection, ServerVersion.AutoDetect(conection)));
-
+            services.AddIdentityConfiguration();
             services.AddDbContext<MyDbContext>(options =>
             {
                 options.UseMySql(
@@ -49,32 +48,12 @@ namespace DevIO.App
 
            services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
-            services.AddControllersWithViews(option =>
-           {
-               // Transforma as Menssagens que são padrões para o português
-               option.ModelBindingMessageProvider.SetAttemptedValueIsInvalidAccessor((x, y) => "O valor preenchido é inválido para este campo.");
-               option.ModelBindingMessageProvider.SetMissingBindRequiredValueAccessor(x => "Este campo precisa ser preenchido.");
-               option.ModelBindingMessageProvider.SetMissingKeyOrValueAccessor(() => "Este campo precisa ser preenchido.");
-               option.ModelBindingMessageProvider.SetMissingRequestBodyRequiredValueAccessor(() => "É necessário que o body na requisição não esteja vazio.");
-               option.ModelBindingMessageProvider.SetNonPropertyAttemptedValueIsInvalidAccessor(x => "O valor preenchido é inválido para este campo.");
-               option.ModelBindingMessageProvider.SetNonPropertyUnknownValueIsInvalidAccessor(() => "O valor preenchido é inválido para este campo.");
-               option.ModelBindingMessageProvider.SetNonPropertyValueMustBeANumberAccessor(() => "O campo deve ser numérico");
-               option.ModelBindingMessageProvider.SetUnknownValueIsInvalidAccessor(x => "O valor preenchido é inválido para este campo.");
-               option.ModelBindingMessageProvider.SetValueIsInvalidAccessor(x => "O valor preenchido é inválido para este campo.");
-               option.ModelBindingMessageProvider.SetValueMustBeANumberAccessor(x => "O campo deve ser numérico.");
-               option.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(x => "Este campo precisa ser preenchido.");
-           }
-           );
+
+            services.AddMvcConfiguration();
 
             services.AddAutoMapper(typeof(Startup)); // Procure qualquer class que tem o profile
-
-            services.AddScoped<MyDbContext>();
-            services.AddScoped<IProductRepository, ProductRepository>();
-            services.AddScoped<IAddressRepository, AddressRepository>();
-            services.AddScoped<ISupplierRepository, SupplierRepository>();
-            services.AddSingleton<IValidationAttributeAdapterProvider, CurrencyAttributeAdapterProvider>();
+            
+            services.ResolveDependencies();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
