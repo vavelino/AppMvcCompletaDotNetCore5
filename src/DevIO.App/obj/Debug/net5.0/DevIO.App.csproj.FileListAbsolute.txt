@@ -461,3 +461,5 @@ D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCom
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\ref\DevIO.App.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\DevIO.App.pdb
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\DevIO.App.genruntimeconfig.cache
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\appsettings.Production.json
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\appsettings.Staging.json
