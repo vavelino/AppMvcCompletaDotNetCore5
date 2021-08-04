@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "XvC9CMVt03KCVTF9cJC92OgVlGtWg23kAJfMpN9rJ97/0e1nrJ2MS1ogt7hEMO8MqE+RCnXC/ffSOhW7PsUYjw==",
+  "dgSpecHash": "6gQp6Ra8vY5Lg7dBuKfMC8puPIc+cEpgknugTxZXFMDRZaQ0O4tR6Fh3OEm5hu722VXDs99+HfTF/jiglgEtig==",
   "success": true,
   "projectFilePath": "D:\\Develop\\DesenvolvedorIO\\01 Curso MVC Core\\10 AplicacaoFinalCompleta\\AppMvcCompleta\\src\\DioIO.Business\\DioIO.Business.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\vitor\\.nuget\\packages\\fluentvalidation\\10.3.0\\fluentvalidation.10.3.0.nupkg.sha512"
+  ],
   "logs": []
 }

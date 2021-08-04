@@ -5,8 +5,7 @@ dotnet add package Microsoft.EntityFrameworkCore.Relational
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 dotnet add package Microsoft.EntityFrameworkCore.Design
 dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection
-
-
+dotnet add package FluentValidation
 
 MyDbContext          -> Tabelas de Entidades
 ApplicationDbContext -> IDENTITY
