@@ -15,14 +15,17 @@ namespace DevIO.App.Controllers
     public class ProductsController : BaseController
     {
         private readonly IProductRepository _productRepository;
+        private readonly IProductService _productService;
         private readonly ISupplierRepository _supplierRepository;
         private readonly IMapper _mapper;
 
         public ProductsController(IProductRepository productRepository,
                                   ISupplierRepository supplierRepository,
-                                  IMapper mapper
-                                  )
+                                  IProductService productService,
+                                  IMapper mapper,
+                                  INotifier notifier) : base(notifier)
         {
+            _productService = productService;
             _productRepository = productRepository;
             _supplierRepository = supplierRepository;
             _mapper = mapper;
@@ -80,7 +83,12 @@ namespace DevIO.App.Controllers
             }
             productViewModel.Image = imgPrefix + productViewModel.ImageUpload.FileName;
 
-            await _productRepository.Add(_mapper.Map<Product>(productViewModel));
+            // await _productRepository.Add(_mapper.Map<Product>(productViewModel));
+
+
+            await _productService.Add(_mapper.Map<Product>(productViewModel));
+
+            if (!IsValidOperation()) return View(productViewModel);
 
             return RedirectToAction("Index");
         }
@@ -138,7 +146,10 @@ namespace DevIO.App.Controllers
                 .Map<Product>
                 (productViewModelUpdate);
 
-            await _productRepository.Update(productUpdate);
+            //await _productRepository.Update(productUpdate);
+            await _productService.Update(productUpdate);
+            if (!IsValidOperation()) return View(productViewModel);
+
             return RedirectToAction(nameof(Index));
         }
 
@@ -160,7 +171,11 @@ namespace DevIO.App.Controllers
             var product = await GetProductById(id);
             if (product == null) return NotFound();
 
-            await _productRepository.Remove(id);
+
+            //await _productRepository.Remove(id);
+            await _productService.Remove(id);
+
+            if (!IsValidOperation()) return View(product);
 
             return RedirectToAction(nameof(Index));
         }

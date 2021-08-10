@@ -13,7 +13,8 @@ namespace DioIO.Business.Services
         private readonly IAddressRepository _addressRepository;
 
         public SupplierService(ISupplierRepository supplierRepository,
-                                IAddressRepository addressRepository)
+                                IAddressRepository addressRepository,
+                                INotifier notifier) : base(notifier)
         {
             _supplierRepository = supplierRepository;
             _addressRepository = addressRepository;

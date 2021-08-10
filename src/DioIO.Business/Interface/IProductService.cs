@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DioIO.Business.Interface
 {
-    interface IProductService
+    public interface IProductService : IDisposable
     {
         Task Add(Product product);
         Task Update(Product product);

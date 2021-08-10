@@ -13,18 +13,20 @@ namespace DevIO.App.Controllers
     public class SuppliersController : BaseController
     {
         private readonly ISupplierRepository _supplierRepository;
-        private readonly IAddressRepository _addressRepository;
+        //private readonly IAddressRepository _addressRepository;
+        private readonly ISupplierService _supplierService;
         private readonly IMapper _mapper;
 
         public SuppliersController(ISupplierRepository supplierRepository,
-                                   IAddressRepository addressRepository,
-                                   IMapper mapper)
+                                   ISupplierService supplierService,
+                                   IMapper mapper,
+                                   INotifier notifier) : base(notifier)
         {
             _supplierRepository = supplierRepository;
-            _addressRepository = addressRepository;
+            _supplierService = supplierService;
+           // _addressRepository = addressRepository;
             _mapper = mapper;
         }
-
 
         // GET: Suppliers
         [Route("lista")]
@@ -66,7 +68,8 @@ namespace DevIO.App.Controllers
 
             var supplier = _mapper
                  .Map<Supplier>(supplierViewModel);
-            await _supplierRepository.Add(supplier);
+            //await _supplierRepository.Add(supplier); 
+            await _supplierService.Add(supplier);
 
             return RedirectToAction("Index");
             //  return RedirectToAction(nameof(Index)); // Não precisa escrever Strings
@@ -97,7 +100,9 @@ namespace DevIO.App.Controllers
             var supplier = _mapper
                  .Map<Supplier>(supplierViewModel);
 
-            await _supplierRepository.Update(supplier);
+            //await _supplierRepository.Update(supplier);
+
+            await _supplierService.Update(supplier);            
 
             return RedirectToAction(nameof(Index));
         }
@@ -126,7 +131,8 @@ namespace DevIO.App.Controllers
             if (supplierViewModel == null) return NotFound();
             // Não excluir o que já não existe
 
-            await _supplierRepository.Remove(id);
+            // await _supplierRepository.Remove(id);
+            await _supplierService.Remove(id);            
 
             return RedirectToAction(nameof(Index));
         }
@@ -159,55 +165,28 @@ namespace DevIO.App.Controllers
             if (!ModelState.IsValid) return PartialView("_UpdateAddress",
                 supplierViewModel);
 
-            await _addressRepository.Update(
-                _mapper.Map<Address>(supplierViewModel.Address));
+           // await _addressRepository.Update(
+            //    _mapper.Map<Address>(supplierViewModel.Address));
+
+
+            await _supplierService.UpdateAdress(
+                        _mapper.Map<Address>(supplierViewModel.Address));
+            
 
             var url = Url.Action("GetAddress", "Suppliers",
                 new { id = supplierViewModel.Address.SupplierId });
 
             return Json(new { success = true, url });
-        }
-
-     
+        }    
 
         private async Task<SupplierViewModel> GetSupplierAddress(Guid id)
         {
             return _mapper
                 .Map<SupplierViewModel>
                 (await _supplierRepository.GetSupplierAddressByID(id));
-        }
-
-        /*
-        IEnumerable<SupplierViewModel> GenerateIEnumerable(IEnumerable<Supplier> suplliers)
-        {
-
-            foreach (var item in suplliers)
-
-            {
-                SupplierViewModel supplierViewModel = new SupplierViewModel();
-
-                supplierViewModel.Id = item.Id;
-                supplierViewModel.Name = item.Name;
-                supplierViewModel.Document = item.Document;
-                supplierViewModel.SupplierType = 1;
-                supplierViewModel.Active = item.Active;
-                //supplierViewModel.Products
-
-
-
-                yield return supplierViewModel;
-            }
-        }
-        */
+        }      
         private async Task<SupplierViewModel> GetSupplierProductAddress(Guid id)
-        {
-            //var teste = await _supplierRepository.GetSupplierProductAddressByID(id);
-            // SupplierViewModel ale = new SupplierViewModel();
-
-
-
-
-            // var aaa = 3;
+        {        
             var SupplierProductAddress = _mapper
                 .Map<SupplierViewModel>
                 (await _supplierRepository.GetSupplierProductAddressByID(id));
