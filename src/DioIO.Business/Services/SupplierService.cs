@@ -23,9 +23,12 @@ namespace DioIO.Business.Services
         {
             // Validar o estado da entidade
             if (
-                (!ExeculteValidation(new SupplierValidation(), supplier)) &&
+                (!ExeculteValidation(new SupplierValidation(), supplier)) ||
                 (!ExeculteValidation(new AddressValidation(), supplier.Address))
-                ) return;
+                )
+            {
+                return;
+            }
             //Verifica se já existe o documento cadastrado
             if (
                 _supplierRepository.Search(s => s.Document == supplier.Document)

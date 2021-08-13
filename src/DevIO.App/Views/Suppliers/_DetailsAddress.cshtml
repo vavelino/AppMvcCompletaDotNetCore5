@@ -60,7 +60,8 @@
                 </td>
                 <td>
                     <!-- asp-route-id -> o ID nesse caso é o parametro -->
-                    <a asp-action="UpdateAddress" asp-route-id="@Model.Id" class="btn btn-info" data-modal="">
+                    <!--Se não for mostrado dentro da Action Edit o botão é suprimido-->
+                    <a supress-by-action="Edit" asp-action="UpdateAddress" asp-route-id="@Model.Id" class="btn btn-info" data-modal="">
                         <span title="Editar" class="fa fa-pencil-alt"></span>
                     </a>
                 </td>

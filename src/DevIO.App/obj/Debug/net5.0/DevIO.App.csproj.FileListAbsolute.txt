@@ -1,5 +1,7 @@
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\appsettings.Development.json
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\appsettings.json
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\appsettings.Production.json
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\appsettings.Staging.json
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\libman.json
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\DevIO.App.StaticWebAssets.xml
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\DevIO.App.exe
@@ -289,6 +291,7 @@ D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCom
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\DevIO.App.Views.pdb
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\AutoMapper.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\FluentValidation.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\Humanizer.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
@@ -439,6 +442,7 @@ D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCom
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Products\Edit.cshtml.g.cs
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Products\Index.cshtml.g.cs
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Products\_ProductsList.cshtml.g.cs
+D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Shared\Components\Summary\Default.cshtml.g.cs
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
@@ -461,6 +465,3 @@ D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCom
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\ref\DevIO.App.dll
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\DevIO.App.pdb
 D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\obj\Debug\net5.0\DevIO.App.genruntimeconfig.cache
-D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\appsettings.Production.json
-D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\appsettings.Staging.json
-D:\Develop\DesenvolvedorIO\01 Curso MVC Core\10 AplicacaoFinalCompleta\AppMvcCompleta\src\DevIO.App\bin\Debug\net5.0\FluentValidation.dll

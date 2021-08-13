@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DevIO.App.Extensions;
 using DevIO.App.ViewModels;
 using DevIO.Business.Models;
 using DioIO.Business.Interface;
@@ -24,7 +25,7 @@ namespace DevIO.App.Controllers
         {
             _supplierRepository = supplierRepository;
             _supplierService = supplierService;
-           // _addressRepository = addressRepository;
+            // _addressRepository = addressRepository;
             _mapper = mapper;
         }
 
@@ -52,6 +53,7 @@ namespace DevIO.App.Controllers
         }
 
         // GET: Suppliers/Create
+        [ClaimsAuthorize("Supplier", "Add")]
         [Route("novo")]
         public IActionResult Create()
         {
@@ -59,6 +61,7 @@ namespace DevIO.App.Controllers
         }
 
         // POST: Suppliers/Create
+        [ClaimsAuthorize("Supplier", "Add")]
         [Route("novo")]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -70,12 +73,13 @@ namespace DevIO.App.Controllers
                  .Map<Supplier>(supplierViewModel);
             //await _supplierRepository.Add(supplier); 
             await _supplierService.Add(supplier);
-
+            if (!IsValidOperation()) return View(supplierViewModel);
             return RedirectToAction("Index");
             //  return RedirectToAction(nameof(Index)); // Não precisa escrever Strings
         }
 
         // GET: Suppliers/Edit/5
+        [ClaimsAuthorize("Supplier", "Edit")]
         [Route("editar/{id:guid}")]
         public async Task<IActionResult> Edit(Guid id)
         {
@@ -89,6 +93,7 @@ namespace DevIO.App.Controllers
         }
 
         // POST: Suppliers/Edit/5
+        [ClaimsAuthorize("Supplier", "Edit")]
         [Route("editar/{id:guid}")]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -102,25 +107,25 @@ namespace DevIO.App.Controllers
 
             //await _supplierRepository.Update(supplier);
 
-            await _supplierService.Update(supplier);            
-
+            await _supplierService.Update(supplier);
+            if (!IsValidOperation()) return View(await GetSupplierProductAddress(id));
             return RedirectToAction(nameof(Index));
         }
 
         // GET: Suppliers/Delete/5
+        [ClaimsAuthorize("Supplier", "Delete")]
         [Route("excluir/{id:guid}")]
         public async Task<IActionResult> Delete(Guid id)
         {
             var supplierViewModel = await GetSupplierAddress(id);
 
-
             if (supplierViewModel == null) return NotFound();
-
 
             return View(supplierViewModel);
         }
 
         // POST: Suppliers/Delete/5
+        [ClaimsAuthorize("Supplier", "Delete")]
         [Route("excluir/{id:guid}")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -132,7 +137,8 @@ namespace DevIO.App.Controllers
             // Não excluir o que já não existe
 
             // await _supplierRepository.Remove(id);
-            await _supplierService.Remove(id);            
+            await _supplierService.Remove(id);
+            if (!IsValidOperation()) return View(supplierViewModel);
 
             return RedirectToAction(nameof(Index));
         }
@@ -144,6 +150,7 @@ namespace DevIO.App.Controllers
             if (supplier == null) return NotFound();
             return PartialView("_DetailsAddress", supplier);
         }
+        [ClaimsAuthorize("Supplier", "Edit")]
         [Route("atualizar-endereco/{id:guid}")]
         public async Task<IActionResult> UpdateAddress(Guid id)
         {
@@ -155,6 +162,7 @@ namespace DevIO.App.Controllers
                 new SupplierViewModel { Address = supplier.Address }
                 );
         }
+        [ClaimsAuthorize("Supplier", "Edit")]
         [Route("atualizar-endereco/{id:guid}")]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -165,28 +173,30 @@ namespace DevIO.App.Controllers
             if (!ModelState.IsValid) return PartialView("_UpdateAddress",
                 supplierViewModel);
 
-           // await _addressRepository.Update(
+            // await _addressRepository.Update(
             //    _mapper.Map<Address>(supplierViewModel.Address));
 
 
             await _supplierService.UpdateAdress(
                         _mapper.Map<Address>(supplierViewModel.Address));
-            
+
+            if (!IsValidOperation()) return PartialView("_UpdateAddress",
+                supplierViewModel);
 
             var url = Url.Action("GetAddress", "Suppliers",
                 new { id = supplierViewModel.Address.SupplierId });
 
             return Json(new { success = true, url });
-        }    
+        }
 
         private async Task<SupplierViewModel> GetSupplierAddress(Guid id)
         {
             return _mapper
                 .Map<SupplierViewModel>
                 (await _supplierRepository.GetSupplierAddressByID(id));
-        }      
+        }
         private async Task<SupplierViewModel> GetSupplierProductAddress(Guid id)
-        {        
+        {
             var SupplierProductAddress = _mapper
                 .Map<SupplierViewModel>
                 (await _supplierRepository.GetSupplierProductAddressByID(id));
