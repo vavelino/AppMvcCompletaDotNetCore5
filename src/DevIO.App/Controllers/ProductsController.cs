@@ -115,7 +115,7 @@ namespace DevIO.App.Controllers
         [ClaimsAuthorize("Product", "Edit")]
         [Route("editar/{id:guid}")]
         [HttpPost]
-        [ValidateAntiForgeryToken]
+       // [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, ProductViewModel productViewModel)
         {
 
@@ -175,7 +175,7 @@ namespace DevIO.App.Controllers
         [ClaimsAuthorize("Product", "Delete")]
         [Route("excluir/{id:guid}")]
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+       // [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
             var product = await GetProductById(id);

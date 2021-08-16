@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace DevIO.App.Configurations
 {
@@ -21,6 +22,10 @@ namespace DevIO.App.Configurations
                 option.ModelBindingMessageProvider.SetValueIsInvalidAccessor(x => "O valor preenchido é inválido para este campo.");
                 option.ModelBindingMessageProvider.SetValueMustBeANumberAccessor(x => "O campo deve ser numérico.");
                 option.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(x => "Este campo precisa ser preenchido.");
+
+                //Ativar Anti Forgery Token Para todos os requests quye recebem dados
+                //Não precisa mais colocar [ValidateAntiForgeryToken]
+                option.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
             }
            );
             return services;

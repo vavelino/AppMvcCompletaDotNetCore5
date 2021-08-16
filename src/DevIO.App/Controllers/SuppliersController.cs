@@ -64,7 +64,7 @@ namespace DevIO.App.Controllers
         [ClaimsAuthorize("Supplier", "Add")]
         [Route("novo")]
         [HttpPost]
-        [ValidateAntiForgeryToken]
+     //   [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(SupplierViewModel supplierViewModel)
         {
             if (!ModelState.IsValid) return View(supplierViewModel);
@@ -96,7 +96,7 @@ namespace DevIO.App.Controllers
         [ClaimsAuthorize("Supplier", "Edit")]
         [Route("editar/{id:guid}")]
         [HttpPost]
-        [ValidateAntiForgeryToken]
+     //   [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, SupplierViewModel supplierViewModel)
         {
             if (id != supplierViewModel.Id) return NotFound();
@@ -128,7 +128,7 @@ namespace DevIO.App.Controllers
         [ClaimsAuthorize("Supplier", "Delete")]
         [Route("excluir/{id:guid}")]
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+      //  [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
             var supplierViewModel = await GetSupplierAddress(id);
@@ -165,7 +165,7 @@ namespace DevIO.App.Controllers
         [ClaimsAuthorize("Supplier", "Edit")]
         [Route("atualizar-endereco/{id:guid}")]
         [HttpPost]
-        [ValidateAntiForgeryToken]
+     //   [ValidateAntiForgeryToken]
         public async Task<IActionResult> UpdateAddress(SupplierViewModel supplierViewModel)
         {
             ModelState.Remove("Name");
